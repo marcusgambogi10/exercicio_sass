@@ -1,0 +1,18 @@
+@use '../config/var';
+
+@mixin dFlex(){
+    display: flex;
+}
+
+header{
+    background-color: var.$corSecondary;
+    position: sticky;
+    top: 0;
+    left: 0;
+    &>.container{
+        @include dFlex();
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}

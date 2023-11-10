@@ -1,0 +1,51 @@
+@use 'config/reset';
+@use 'config/var';
+@use 'modules/header';
+@use 'modules/prod';
+
+@mixin dFlex(){
+    display: flex;
+}
+@mixin dBlock(){
+    display: block;
+}
+
+body{
+    background-color: var.$corFundo;
+}
+.container{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+li{
+    list-style: none;
+}
+.menu{
+    @include dFlex();
+    & li{
+        font-weight: bold;
+        margin-left: 24px;
+        & a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+@media screen and (max-width: var.$tablet){
+    .container{
+        max-width: 80%;
+    }
+    .products{
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+@media screen and (max-width: var.$mobile){
+    .products{
+        @include dBlock();
+    }
+    .product-item{
+        margin-bottom: 32px;
+    }
+}
